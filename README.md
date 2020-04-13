@@ -1,3 +1,4 @@
+A React weather app using Open Weather API on the Raspberry Pi 3 and Raspberry Pi Touch Display. <br />
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and Bootstrap 4!
 
 I followed these tutorials to get this app started.<br />
