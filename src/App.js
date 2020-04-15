@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 
-import Navbar from "./components/navbar.component"
-import CurrentWeather from "./components/CurrentWeather.component";
+import Navbar from "./components/Navbar"
+import CurrentWeather from "./components/CurrentWeather";
 
 function App() {
   return (
