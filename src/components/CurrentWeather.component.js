@@ -10,6 +10,7 @@ class CurrentWeather extends Component {
 
         this.state =({
           isLoading: true,
+          date: '',
           tempF: '',
           tempC: '',
           humidity: '',
@@ -35,6 +36,7 @@ class CurrentWeather extends Component {
               } else {
                 this.setState({
                     isLoading: false,
+                    date: new Date().toLocaleString(),
                     tempF: Math.round(data.data.main.temp) + '°F',
                     tempC: Math.round((data.data.main.temp - 32) * 5 / 9) + '°C',
                     humidity: data.data.main.humidity + '%',
@@ -57,6 +59,11 @@ class CurrentWeather extends Component {
     console.log(this.state.weatherIcon);
     const WeatherConditions = (
           <div className='weatherCard container-fluid'>
+            <div className='row date'>
+              <div className='col-12'>
+                <p>{this.state.date}</p>
+              </div>
+            </div>
             <div className='row conditionsIcon'>
               <div className='col-12'>
                 <WeatherIcon iconId={this.state.weatherIcon} />
