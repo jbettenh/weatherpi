@@ -59,7 +59,7 @@ class CurrentWeather extends Component {
     console.log(this.state.weatherIcon);
     const WeatherConditions = (
           <div className='weatherCard container-fluid'>
-            <div className='row date'>
+            <div className='row conditionsDate'>
               <div className='col-12'>
                 <p>{this.state.date}</p>
               </div>
