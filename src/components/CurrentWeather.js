@@ -25,6 +25,8 @@ class CurrentWeather extends Component {
     }
 
     componentDidMount() {
+      let options = { weekday: 'long', month: 'long', day:'numeric' };
+
       fetch('http://192.168.2.117:5000/current-weather')
       .then(res => res.json())
       .then(data => {
@@ -36,7 +38,7 @@ class CurrentWeather extends Component {
               } else {
                 this.setState({
                     isLoading: false,
-                    date: new Date().toLocaleString(),
+                    date: new Date().toLocaleString('en-US', options),
                     tempF: Math.round(data.data.main.temp) + '°F',
                     tempC: Math.round((data.data.main.temp - 32) * 5 / 9) + '°C',
                     humidity: data.data.main.humidity + '%',
@@ -64,14 +66,10 @@ class CurrentWeather extends Component {
                 <p>{this.state.date}</p>
               </div>
             </div>
-            <div className='row conditionsIcon'>
-              <div className='col-12'>
-                <WeatherIcon iconId={this.state.weatherIcon} />
-              </div>
-            </div>
             <div className='row conditionsOverview'>
-              <div className='col-6'><p>{this.state.tempF}</p></div>
-              <div className='col-6'><p>{this.state.tempC}</p></div>
+              <div className='col-4'><WeatherIcon iconId={this.state.weatherIcon} /></div>
+              <div className='col-4'><p>{this.state.tempF}</p></div>
+              <div className='col-4'><p>{this.state.tempC}</p></div>
             </div>
             <div className='row conditionDetails'>
               <div className='col-6'><p>Humidity: {this.state.humidity}</p></div>

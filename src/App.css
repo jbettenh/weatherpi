@@ -20,10 +20,17 @@
   color: #FFFFFF;
 }
 
-.conditionsIcon {
-  text-align: center;
+.conditionsOverview {
+  text-align: right;
+  vertical-align: middle;
+  font-size: 3em;
+  color: #FFFFFF;
 }
 
+.conditionsOverview p {
+  text-align: left;
+}
+/*
 .conditionsOverview p {
   margin-top: -10px;
   margin-bottom: -10px;
@@ -34,6 +41,7 @@
   color: #FFFFFF;
 
 }
+*/
 
 .conditionDetails p {
   text-align: center;
