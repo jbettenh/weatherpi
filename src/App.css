@@ -30,30 +30,16 @@
 .conditionsOverview p {
   text-align: left;
 }
-/*
-.conditionsOverview p {
-  margin-top: -10px;
-  margin-bottom: -10px;
-  text-align: center;
-
-  font-size: 75px;
-  font-weight: bold;
-  color: #FFFFFF;
-
-}
-*/
 
 .conditionDetails p {
   text-align: center;
   font-size: 20px;
-  font-weight: bold;
   color: #FFFFFF;;
 }
 
 .conditionLocation p {
   text-align: left;
   font-size: 22px;
-  font-weight: bold;
   color: #FFFFFF;
 }
 
