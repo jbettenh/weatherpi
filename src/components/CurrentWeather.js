@@ -11,6 +11,7 @@ class CurrentWeather extends Component {
         this.state =({
           isLoading: true,
           date: '',
+          time: '',
           tempF: '',
           tempC: '',
           humidity: '',
@@ -39,6 +40,7 @@ class CurrentWeather extends Component {
                 this.setState({
                     isLoading: false,
                     date: new Date().toLocaleString('en-US', options),
+                    time: new Date().toLocaleTimeString('en-US'),
                     tempF: Math.round(data.data.main.temp) + '°F',
                     tempC: Math.round((data.data.main.temp - 32) * 5 / 9) + '°C',
                     humidity: data.data.main.humidity + '%',
@@ -64,6 +66,7 @@ class CurrentWeather extends Component {
             <div className='row conditionsDate'>
               <div className='col-12'>
                 <p>{this.state.date}</p>
+                <p>{this.state.time}</p>
               </div>
             </div>
             <div className='row conditionsOverview'>
