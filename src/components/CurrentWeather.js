@@ -14,6 +14,9 @@ class CurrentWeather extends Component {
           time: '',
           tempF: '',
           tempC: '',
+          tempMin: '',
+          tempMax: '',
+          feelsLike: '',
           humidity: '',
           wind: '',
           windDirection: '',
@@ -43,6 +46,9 @@ class CurrentWeather extends Component {
                     time: new Date().toLocaleTimeString('en-US'),
                     tempF: Math.round(data.data.main.temp) + '°F',
                     tempC: Math.round((data.data.main.temp - 32) * 5 / 9) + '°C',
+                    tempMin: Math.round(data.data.main.temp_min) + '°F',
+                    tempMax: Math.round(data.data.main.temp_max) + '°F',
+                    feelsLike: Math.round(data.data.main.feels_like) +'°F',
                     humidity: data.data.main.humidity + '%',
                     wind: Math.round(data.data.wind.speed) + ' mph',
                     windDirection: data.data.wind.deg,
@@ -70,9 +76,15 @@ class CurrentWeather extends Component {
               </div>
             </div>
             <div className='row conditionsOverview'>
-              <div className='col-4'><WeatherIcon iconId={this.state.weatherIcon} /></div>
-              <div className='col-4'><p>{this.state.tempF}</p></div>
-              <div className='col-4'><p>{this.state.tempC}</p></div>
+              <div className='col-2'><WeatherIcon iconId={this.state.weatherIcon} /></div>
+              <div className='col-2'><p>{this.state.tempF}</p></div>
+              <div className='col-2'><p>{this.state.tempC}</p></div>
+              <div className='col-6'><p>{this.state.currentConditionDescription}</p></div>
+            </div>
+            <div className='row conditionRange'>
+              <div className='col-4'><p>Feels Like: {this.state.feelsLike}</p></div>
+              <div className='col-4'><p>Min: {this.state.tempMin}</p></div>
+              <div className='col-4'><p>Max: {this.state.tempMax}</p></div>
             </div>
             <div className='row conditionDetails'>
               <div className='col-6'><p>Humidity: {this.state.humidity}</p></div>
@@ -80,7 +92,6 @@ class CurrentWeather extends Component {
             </div>
             <div className='row conditionLocation'>
               <div className='col-12'>
-                <p>{this.state.currentConditionDescription}</p>
                 <p>Location | {this.state.cityName}</p>
               </div>
             </div>
